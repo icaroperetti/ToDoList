@@ -1,0 +1,26 @@
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    background-color: whitesmoke;
+
+}
+
+textarea{
+    width: 100%;
+}
+
+.logo{
+    width: 60px;
+}
+
+aside a{
+    color:black;
+}
+
+.tarefas{
+    margin-bottom: 30px;
+}
