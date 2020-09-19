@@ -1,7 +1,8 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     require_once('../partials/_verifica_login.php');
-    require_once('../src/utils/FlashMessages.php');
+    use App\utils\FlashMessage;
 
 ?>
 <!DOCTYPE html>

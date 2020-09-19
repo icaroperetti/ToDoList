@@ -1,6 +1,7 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
-    require_once('../src/utils/FlashMessages.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
+    use App\utils\FlashMessage;
 
     unset($_SESSION['usuario']);
     session_unset();

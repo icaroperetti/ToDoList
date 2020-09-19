@@ -1,10 +1,12 @@
 <?php
+    use App\dao\TarefaDAO;
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/src/dao/tarefaDAO.php');
-    require_once('../src/utils/FlashMessages.php');
+    
+    use App\utils\FlashMessage;
     require_once('../partials/_verifica_login.php');
     
-    $stmt = TarefaDao::getAll();
+    $stmt = TarefaDAO::getAll();
 
     
 ?>

@@ -1,7 +1,9 @@
 <?php
+    use App\dao\usuarioDAO;
+    use App\utils\FlashMessage;
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
-    require_once('../src/dao/usuarioDAO.php');
-    require_once('../src/utils/FlashMessages.php');
+    
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];

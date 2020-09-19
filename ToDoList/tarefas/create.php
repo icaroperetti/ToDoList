@@ -1,7 +1,8 @@
 <?php
+    use App\dao\tarefaDAO;    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
-    require_once('../src/dao/tarefaDAO.php');
-    require_once('../src/utils/FlashMessages.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
+    use App\utils\FlashMessage;
     
     $titulo = $_POST['titulo'];
     $data_real = $_POST['data_real'];

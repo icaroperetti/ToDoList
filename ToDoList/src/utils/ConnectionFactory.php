@@ -1,5 +1,6 @@
 <?php
-
+    namespace App\utils;
+    use \PDO;
     class ConnectionFactory{
         private static  $host = "localhost";
         private static   $db = "listatarefas";

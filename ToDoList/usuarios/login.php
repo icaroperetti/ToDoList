@@ -1,12 +1,13 @@
 <?php
+    use App\dao\usuarioDAO;
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
-    require_once('../src/dao/usuarioDAO.php');
-    require_once('../src/utils/FlashMessages.php');
+    use App\utils\FlashMessage;
 
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-     $stmt = usuarioDAO::validation($email);
+     $stmt = usuarioDao::validation($email);
      $user = $stmt->fetch(PDO::FETCH_OBJ);
 
     if($user){
@@ -16,11 +17,11 @@
             FlashMessage::setMessage('Usuário Logado com sucesso',FlashMessage::OK);
             header("location: /tarefas/listartarefas.php");
         } else{
-            FlashMessage::setMessage('Senha incorreta',FlashMessage::ERROR);
+            FlashMessage::setMessage('Credenciais incorretas',FlashMessage::ERROR);
             header("location: /index.php");
         }
     } else{
-        FlashMessage::setMessage('Email incorreto ou inexistente',FlashMessage::ERROR);
+        FlashMessage::setMessage('Email não cadastrado no nosso sistema',FlashMessage::ERROR);
         header("location: /index.php");
     }
     

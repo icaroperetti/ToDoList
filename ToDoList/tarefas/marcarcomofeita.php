@@ -1,6 +1,7 @@
 <?php
-     require_once($_SERVER['DOCUMENT_ROOT'] . '/src/dao/tarefaDAO.php');
-
+     use App\dao\TarefaDAO;
+     require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
+     
      $id = $_GET['id'];
 
      $stmt = TarefaDao::setTaskAsDone($id);
