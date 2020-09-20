@@ -90,7 +90,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Icaro','icaroico333@gmail.com','$2y$10$ttWP94hl5wji4vxizk48zuGauWsP9AiX2Aq7Du/ux16MyBXqOv/be');
+INSERT INTO `usuarios` VALUES (1,'Icaro','icaro@gmail.com','$2y$10$ttWP94hl5wji4vxizk48zuGauWsP9AiX2Aq7Du/ux16MyBXqOv/be');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
