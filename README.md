@@ -1,6 +1,4 @@
 # ToDoList
-Aluno:Ícaro Peretti 
-
 
 Projeto de Linguagem de Programação ll - IFC Videira,2020
 
