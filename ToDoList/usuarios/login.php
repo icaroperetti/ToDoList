@@ -7,7 +7,7 @@
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-     $stmt = usuarioDao::validation($email);
+     $stmt = usuarioDAO::validation($email);
      $user = $stmt->fetch(PDO::FETCH_OBJ);
 
     if($user){
