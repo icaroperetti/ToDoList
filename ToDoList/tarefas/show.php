@@ -1,16 +1,16 @@
 <?php
-    use App\dao\TarefaDAO;
+    use App\dao\tarefaDAO;;
     require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
     require_once('../partials/_verifica_login.php');
 
     $id = $_GET['id'];
-    $stmt_tar = TarefaDao::getById($id);
+    $stmt_tar = tarefaDao::getById($id);
 
 
     $tarefa = $stmt_tar->fetch(PDO::FETCH_OBJ);
 
-    $stmt_status = TarefaDao::getStatusName($id);
+    $stmt_status = tarefaDao::getStatusName($id);
     $status_tarefa = $stmt_status->fetch(PDO::FETCH_OBJ);
 
     //Converter data do padrão americano para o BR

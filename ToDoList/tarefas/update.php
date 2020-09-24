@@ -1,5 +1,5 @@
 <?php
-    use App\dao\TarefaDAO;
+    use App\dao\tarefaDAO;
     require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
 
     $id = $_POST['id'];
@@ -7,7 +7,7 @@
     $data_real = $_POST['data_real'];
     $descricao = $_POST['descricao'];
 
-    $return = TarefaDao::update($id,$titulo,$data_real,$descricao);
+    $return = tarefaDao::update($id,$titulo,$data_real,$descricao);
 
     header('location: /tarefas/listartarefas.php');
 ?>

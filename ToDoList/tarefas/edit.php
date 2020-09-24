@@ -1,10 +1,10 @@
 <?php
-    use App\dao\TarefaDAO;
+     use App\dao\tarefaDAO;
     require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     
     $id = $_GET['id'];
     
-    $stmt = TarefaDao::getById($id);
+    $stmt = tarefaDao::getById($id);
 
     $tarefa = $stmt->fetch(PDO::FETCH_OBJ);
 

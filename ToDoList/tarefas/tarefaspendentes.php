@@ -1,10 +1,10 @@
 <?php
-     use App\dao\TarefaDAO;
-     require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
+    use App\dao\tarefaDAO;
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
     require_once('../partials/_verifica_login.php');
 
-    $stmt = TarefaDao::getPendentTasks();
+    $stmt = tarefaDao::getPendentTasks();
 
 ?>
 
