@@ -3,8 +3,8 @@
     use App\dao\tarefaDAO;
     require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     require_once('../partials/_verifica_login.php');
-
-    $stmt = tarefaDao::getDoneTasks();
+    $userid = $_SESSION['userid'];
+    $stmt = tarefaDao::getDoneTasks($userid);
 
 ?>
 

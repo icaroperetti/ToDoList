@@ -2,21 +2,23 @@
     namespace App\dao;
     use App\utils\ConnectionFactory;
     use \PDO;
-
     class TarefaDao{
         
-        public static function create($titulo,$data_real,$descricao){
+        public static function create($userid,$titulo,$data_real,$descricao){
             $con = ConnectionFactory::getConnection();
-            $stmt = $con->prepare("INSERT INTO tarefas (titulo,data_real,descricao) VALUES (:titulo,:data_real,:descricao)");
+            $stmt = $con->prepare("INSERT INTO tarefas (titulo,data_real,descricao,userid) VALUES (:titulo,:data_real,:descricao,:userid)");
             $stmt->bindParam(':titulo',$titulo,PDO::PARAM_STR);
             $stmt->bindParam(':data_real',$data_real);
             $stmt->bindParam(':descricao',$descricao,PDO::PARAM_STR);
+            $stmt->bindParam(':userid',$userid,PDO::PARAM_INT);
             return $stmt->execute();
         }
 
-        public static function getAll(){
-            $con = ConnectionFactory::getConnection();
-            $stmt = $con->prepare("SELECT * FROM tarefas");
+        public static function getAll($userid){
+            $con = ConnectionFactory::getConnection($userid);
+            $stmt = $con->prepare("SELECT tarefas.id,tarefas.id_status,tarefas.titulo,tarefas.data_real,
+            tarefas.descricao FROM tarefas INNER JOIN usuarios WHERE usuarios.id = tarefas.userid AND tarefas.userid = $userid");
+            $stmt->bindParam(':userid',$userid,PDO::PARAM_INT);
             $stmt->execute();
             return $stmt;
         }
@@ -45,16 +47,20 @@
             return $stmt;
         }
 
-        public static function getDoneTasks(){
+        public static function getDoneTasks($userid){
             $con = ConnectionFactory::getConnection();
-            $stmt = $con->prepare("SELECT * FROM tarefas WHERE id_status = 2");
+            $stmt = $con->prepare("SELECT tarefas.id,tarefas.id_status,tarefas.titulo,tarefas.data_real,
+            tarefas.descricao FROM tarefas INNER JOIN usuarios WHERE usuarios.id = tarefas.userid AND tarefas.userid = $userid AND tarefas.id_status = 2");
+            $stmt->bindParam(':userid',$userid,PDO::PARAM_INT);
             $stmt->execute();
             return $stmt;
         }
 
-        public static function getPendentTasks(){
+        public static function getPendentTasks($userid){
             $con = ConnectionFactory::getConnection();
-            $stmt = $con->prepare("SELECT * FROM tarefas WHERE id_status = 1");
+            $stmt = $con->prepare("SELECT tarefas.id,tarefas.id_status,tarefas.titulo,tarefas.data_real,
+            tarefas.descricao FROM tarefas INNER JOIN usuarios WHERE usuarios.id = tarefas.userid AND tarefas.userid = $userid AND tarefas.id_status = 1");
+            $stmt->bindParam(':userid',$userid,PDO::PARAM_INT);
             $stmt->execute();
             return $stmt;
         }

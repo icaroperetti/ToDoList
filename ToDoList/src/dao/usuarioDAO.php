@@ -20,6 +20,13 @@
             $stmt->execute();
             return $stmt;
         }
+
+        public static function getAll(){
+            $con = ConnectionFactory::getConnection();
+            $stmt = $con->prepare("SELECT usuarios.id FROM usuarios");
+            $stmt->execute();
+            return $stmt;
+        }
     }
 
 ?>

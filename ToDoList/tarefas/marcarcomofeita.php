@@ -1,5 +1,5 @@
 <?php
-     use App\dao\tarefaDAO;
+     use App\dao\TarefaDAO;
      require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
      
      $id = $_GET['id'];

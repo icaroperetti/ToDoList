@@ -1,10 +1,11 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
     require_once('../partials/_verifica_login.php');
     use App\utils\FlashMessage;
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -26,7 +27,7 @@
                             <h3 class="pt-5">Cadastrar nova tarefa</h3>
                             <hr />
                             <form action="/tarefas/create.php" method="POST">
-                                <input type="hidden">
+                            <input type="hidden" name="userid" value="<?= $_SESSION['userid'] ?>">
                                 <div class="form-group row">
                                     <label for="titulo" class="col-sm-2 col-form-label">Titulo</label>
                                     <div class="col-sm-10">

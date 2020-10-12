@@ -24,6 +24,7 @@
                     <div id="login-box" class="col-md-12 rounded">
                         <form id="login-form" class="form" action="/usuarios/login.php" method="POST">
                             <h4 class="text-center text-info">Por favor, faça login ou crie uma conta</h4>
+                            <p class="text-center">Made by Ícaro</p>
                             <div class="form-group">
                                 <label for="username" nameclass="text-info">Email:</label><br>
                                 <input type="text" name="email" id="username" class="form-control">

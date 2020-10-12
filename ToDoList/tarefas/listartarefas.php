@@ -5,10 +5,9 @@
     
     use App\utils\FlashMessage;
     require_once('../partials/_verifica_login.php');
-    
-    $stmt = tarefaDao::getAll();
-
-    
+    $userid = $_SESSION['userid'];
+    $stmt = tarefaDao::getAll($userid);
+   
 ?>
 
 <!DOCTYPE html>
@@ -50,12 +49,10 @@
 
                             </div>
                         </div>
-
-                    <?php endwhile ?>
+                    <?php endwhile?>
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>

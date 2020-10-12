@@ -3,9 +3,9 @@
     require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); 
     require_once($_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php');
     require_once('../partials/_verifica_login.php');
-
-    $stmt = tarefaDao::getPendentTasks();
-
+    
+    $userid = $_SESSION['userid'];
+    $stmt = tarefaDao::getPendentTasks($userid);
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,6 @@
                         <div class="col-md-6 tarefas">
                             <div class="card">
                                 <div class="card-body rounded">
-                                
                                     <?php if ($row->titulo) : ?>
                                         <h5 class="card-title"><?= $row->titulo ?></h5>
                                     <?php else : ?>
@@ -43,7 +42,6 @@
                                     <p class="card-text">Data:<?= date("d/m/Y",strtotime($row->data_real)) ?></p>
                                     <a href="show.php?id=<?= $row->id ?>" class="card-link btn btn-primary btn-md">Ver tarefa</a>
                                 </div>
-
                             </div>
                         </div>
 
