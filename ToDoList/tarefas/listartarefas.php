@@ -28,6 +28,30 @@
                 <h2 class="pt-4">Todas as tarefas</h2>
                 <div class="row">
                     <?php while ($row = $stmt->fetch(PDO::FETCH_OBJ)) : ?>
+                    <?php if($row->id_status == 2) : ?>
+                        <div class="col-md-6 tarefas ">
+                            <div class="card bg-success">
+                                <div class="card-body rounded">
+                                    <?php if ($row->titulo) : ?>
+                                        <h5 class="card-title text-white"><?= $row->titulo ?></h5>
+                                    <?php else : ?>
+                                        <h5 class="card-title">Lembrete sem titulo</h5>
+                                    <?php endif ?>
+
+                                    <?php if ($row->descricao) : ?>
+                                        <p class="card-text text-white"><?= substr($row->descricao, 0, 70) . "..." ?></p>
+                                    <?php else : ?>
+                                        <p class="card-text text-white">Descrição não adicionada nesta tarefa</p>
+                                    <?php endif ?>
+
+                                    <p class="card-text text-white">Data:<?= date("d/m/Y", strtotime($row->data_real)) ?></p>
+                                    <a href="show.php?id=<?= $row->id ?>" class="card-link btn btn-primary btn-md">Ver tarefa</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    <?php endif ?>
                         <div class="col-md-6 tarefas">
                             <div class="card">
                                 <div class="card-body rounded">
