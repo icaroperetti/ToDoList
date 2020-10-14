@@ -12,7 +12,7 @@
     $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $stmtEmail = usuarioDAO::validation(filter_var($email, FILTER_VALIDATE_EMAIL));
+        $stmtEmail = usuarioDAO::validation($email);
 
 
         if ($stmtEmail->rowCount() > 0) {
