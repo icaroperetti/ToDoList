@@ -11,16 +11,20 @@
 
     $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
 
-    $stmtEmail = usuarioDAO::validation($email);
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $stmtEmail = usuarioDAO::validation(filter_var($email, FILTER_VALIDATE_EMAIL));
 
-    if($stmtEmail->rowCount() > 0){
-        FlashMessage::setMessage("Email já está sendo utilizado",FlashMessage::ERROR);
-        header("Location: /usuarios/registrar_front.php");
-        exit(0);
+
+        if ($stmtEmail->rowCount() > 0) {
+            FlashMessage::setMessage("Email já está sendo utilizado", FlashMessage::ERROR);
+            header("Location: /usuarios/registrar_front.php");
+            exit(0);
+        } else {
+            usuarioDAO::create($nome, $email, $hashed_password);
+            FlashMessage::setMessage("Usuario cadastrado com sucesso!", FlashMessage::OK);
+            header("Location: /index.php");
+        }
     }else{
-        usuarioDAO::create($nome,$email,$hashed_password);
-        FlashMessage::setMessage("Usuario cadastrado com sucesso!",FlashMessage::OK);
-        header("Location: /index.php");
+        FlashMessage::setMessage("Email inválido", FlashMessage::ERROR);
+        header("Location: /usuarios/registrar_front.php");
     }
-    
-?>
