@@ -13,8 +13,7 @@
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $stmtEmail = usuarioDAO::validation($email);
-
-
+        
         if ($stmtEmail->rowCount() > 0) {
             FlashMessage::setMessage("Email já está sendo utilizado", FlashMessage::ERROR);
             header("Location: /usuarios/registrar_front.php");
